@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Handlebars</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/handlebars.js"></script>
+	<script id="class-template" type="text/x-handlebars-template">
+		<ul>
+			{{#each this}}
+			<li>
+				<div class="innerbox">
+					<img src="{{image}}" alt="{{title}}">
+					<div class="title_div">
+						<span class="title">{{title}}</span>
+						{{#equal hasnote 0}}<span class="note">(有笔记)</span>{{/equal}}
+					</div>
+					<div class="subtitle">{{subtitle}}</div>
+					<div class="subtitle {{#long timespan}} long {{else}} short {{/long}}">时间：{{timespan}}</div>
+				</div>
+			</li>
+			{{/each}}
+		</ul>
+	</script>
+	<script id="pag-template" type="text/x-handlebars-template">
+		<ul>
+			{{#each this}}
+			<li data-id={{index}} {{#if cur}} class="cur" {{/if}}
+			    {{#if clickable}} class="clickable" {{/if}}>{{{text}}}</li>
+			{{/each}}
+		</ul>
+	</script>
+</head>
+<body>
+	<div class="banner">
+		<h1>我的笔记本</h1>
+		<h3>你的指尖，有改变世界的力量</h3>
+	</div>
+	<div class="classes" id="classes">
+		
+	</div>
+	<div class="pag" id="pag">
+		
+	</div>
+	<div class="overlap">
+		<div class="notedetail">
+			<div class="chapterdiv">
+				<ul class="titleul">
+					<li class="titleli">
+						<div class="title">1、课程介绍</div>
+						<ul>
+							<li class="subtitle">
+								1-1、
+								<a href="http://wwww.imooc.com/video/9144" target="_blank">课程介绍</a>
+								<span class="time">(02:53)</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="notemiddle"></div>
+			<div class="notediv">
+				
+			</div>
+		</div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
